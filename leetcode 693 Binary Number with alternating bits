@@ -1,0 +1,19 @@
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        int x=-1;
+        boolean y=false;
+        while(n>0){
+            int lastbit=n&1;
+            if(lastbit==x){
+                y=false;
+            break;
+            }
+            else{
+            n=n>>1;
+            x=lastbit;
+            y=true;
+            }
+        }
+        return y;
+    }
+}
