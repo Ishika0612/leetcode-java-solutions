@@ -1,0 +1,40 @@
+class Solution {
+    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+    HashMap<Integer,Integer>hm=new HashMap<>();
+for(int i=0;i<arr1.length;i++){
+if(hm.containsKey(arr1[i])==false)
+hm.put(arr1[i],1);
+else{
+int x=hm.get(arr1[i]);
+hm.remove(arr1[i]);
+hm.put(arr1[i],x+1);
+}
+}
+int[] ans=new int[arr1.length];
+int j=0;
+HashSet<Integer>hs=new HashSet<>();
+for(int i=0;i<arr2.length;i++){
+hs.add(arr2[i]);
+int x=hm.get(arr2[i]);
+int y=j+x;
+for(int k=j;k<y;k++){
+ans[k]=arr2[i];
+j++;
+}
+}
+int[] arr= new int[arr1.length-j];
+int a=0;
+for(int i=0;i<arr1.length;i++){
+if(hs.contains(arr1[i])==false){
+arr[a]=arr1[i];
+a++;
+}
+}
+Arrays.sort(arr);
+for(int i=0;i<arr.length;i++){
+ans[j]=arr[i];
+j++;
+}
+return ans;
+    }
+}
