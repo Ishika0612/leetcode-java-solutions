@@ -1,0 +1,18 @@
+class Solution {
+    public int maximum69Number (int num) {
+String s=Integer.toString(num);
+StringBuilder sb=new StringBuilder();
+int i=0;
+for(char c:s.toCharArray()){
+    i++;
+    if(c == '6'){
+      sb.append('9');
+        break;
+    }
+    else
+    sb.append(c);
+}
+sb.append(s.substring(i,s.length()));
+return Integer.valueOf(sb.toString());
+    }
+}
