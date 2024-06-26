@@ -1,0 +1,22 @@
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+       int max=-1;
+       for(int i=0;i<nums.length;i++) 
+        max=Math.max(max,nums[i]);
+       int[] ans=new int[max+1];
+        int[] prefarr=new int[max+1];
+       for(int i=0;i<nums.length;i++){
+        int x=nums[i];
+        ans[x]++;
+       }
+       int a=0;
+       prefarr[0]=0;
+       for(int i=1;i<ans.length;i++){
+        prefarr[i]=a+ans[i-1];
+        a=prefarr[i];
+       }
+       for(int i=0;i<nums.length;i++)
+       nums[i]=prefarr[nums[i]];
+       return nums;
+    }
+}
