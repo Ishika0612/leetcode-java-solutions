@@ -1,0 +1,21 @@
+class Solution {
+    public int minSteps(String s, String t) {
+               HashMap<Character,Integer>hm=new HashMap<>(); 
+       for(char c:s.toCharArray()){
+        if(hm.containsKey(c))
+        hm.put(c,hm.get(c)+1);
+        else
+        hm.put(c,1);
+       }
+       int count=0;
+       for(char x:t.toCharArray()){
+             if(hm.containsKey(x)==false)
+             count++;
+             else if(hm.containsKey(x) && hm.get(x)>0)
+             hm.put(x,hm.get(x)-1);
+             else
+             count++;
+       }
+       return count;
+    }
+}
