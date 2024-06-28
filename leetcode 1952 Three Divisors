@@ -1,0 +1,14 @@
+class Solution {
+    public boolean isThree(int n) {
+        HashSet<Integer>hs=new HashSet<>();
+        hs.add(1);
+        for(int i=2;i<=n;i++){
+            if(n%i==0)
+            hs.add(i);
+        }
+        if(hs.size()==3)
+        return true;
+        else
+        return false;
+    }
+}
