@@ -1,0 +1,32 @@
+class Solution {
+    public int countCharacters(String[] words, String chars) {
+       HashMap<Character,Integer>hm=new HashMap<>();
+       for(int i=0;i<chars.length();i++){
+        if(hm.containsKey(chars.charAt(i)))
+        hm.put(chars.charAt(i),hm.get(chars.charAt(i))+1);
+        else
+        hm.put(chars.charAt(i),1);
+       }
+       int count=0;
+       for(int i=0;i<words.length;i++) {
+        String s=words[i];
+        boolean y=true;
+         HashMap<Character,Integer>hm1=new HashMap<>();
+          for(int j=0;j<s.length();j++){
+        if(hm1.containsKey(s.charAt(j)))
+        hm1.put(s.charAt(j),hm1.get(s.charAt(j))+1);
+        else
+        hm1.put(s.charAt(j),1);
+        if(hm.containsKey(s.charAt(j))==false || hm1.get(s.charAt(j))>hm.get(s.charAt(j))){
+            y=false;
+            break;
+        }
+        else 
+        continue;
+       }
+       if(y==true)
+       count+=s.length();
+       }
+       return count;
+    }
+}
