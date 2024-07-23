@@ -1,0 +1,12 @@
+class Solution {
+    public int smallestEvenMultiple(int n) {
+       int ans=0;
+        for(int i=n;i<=Integer.MAX_VALUE;i=i+n){
+            if(i%2==0){
+                ans=i;
+                break;
+            }
+        }
+        return ans;
+    }
+}
