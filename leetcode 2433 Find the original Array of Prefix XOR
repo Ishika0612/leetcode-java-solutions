@@ -1,0 +1,15 @@
+class Solution {
+    public int[] findArray(int[] pref) {
+        int[] arr=new int[pref.length];
+        arr[0]=pref[0];
+        int res=arr[0];
+        int xor=arr[0];
+        for(int i=1;i<pref.length;i++){
+            res=res^pref[i];
+            arr[i]=res;
+            xor=xor^arr[i];
+            res=xor;
+        }
+        return arr;
+    }
+}
