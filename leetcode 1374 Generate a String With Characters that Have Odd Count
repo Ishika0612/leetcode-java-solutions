@@ -1,0 +1,10 @@
+class Solution {
+    public String generateTheString(int n) {
+        String str="a";
+        String x="b";
+        if(n%2==0)
+         return str.repeat(n-1)+x ;
+         else
+          return str.repeat(n);
+    }
+}
