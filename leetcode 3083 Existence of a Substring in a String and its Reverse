@@ -1,0 +1,17 @@
+class Solution {
+    public boolean isSubstringPresent(String s) {
+        boolean y=false;
+       String srev= " ";
+StringBuilder sb= new StringBuilder (s);
+srev=sb.reverse().toString();
+String s2="";
+for(int i =0;i<s.length()-1;i++){
+s2=s.substring(i,i+2);
+if(srev.contains(s2)){
+    y=true;
+    break;
+}
+} 
+return y;
+    }
+}
