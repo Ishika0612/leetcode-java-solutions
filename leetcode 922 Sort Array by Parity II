@@ -1,0 +1,25 @@
+class Solution {
+    public int[] sortArrayByParityII(int[] nums) {
+     ArrayList<Integer>arreven=new ArrayList<>();
+     ArrayList<Integer>arrodd=new ArrayList<>(); 
+     for(int i=0;i<nums.length;i++) {
+        if(nums[i]%2==0)
+        arreven.add(nums[i]);
+        else
+        arrodd.add(nums[i]);
+     }
+     int odd=0;
+     int even=0;
+     for(int i=0;i<nums.length;i++){
+        if(i%2==0){
+            nums[i]=arreven.get(even);
+            even++;
+        }
+        else{
+             nums[i]=arrodd.get(odd);
+            odd++;
+        }
+     }
+     return nums;
+    }
+}
