@@ -1,0 +1,17 @@
+class Solution {
+    public List<Integer> numOfBurgers(int tomatoSlices, int cheeseSlices) {
+        ArrayList<Integer>ans=new ArrayList<>();
+
+        // x is jumboburger and y is smallburger
+        // 4x+2y should be equal to total tomatoslices
+        // x+y should be equal to total cheeseslices
+      int smallBurger=(4*cheeseSlices-tomatoSlices)/2;
+      int jumboBurger=cheeseSlices-smallBurger;
+
+    if(tomatoSlices%2==0 && smallBurger>=0 && jumboBurger>=0){
+     ans.add(jumboBurger);
+     ans.add(smallBurger);  }
+
+     return ans;
+    }
+}
