@@ -1,0 +1,20 @@
+class Solution {
+    public int minLength(String s) {
+        int abocc=-1;
+        int cdocc=-1;
+
+        while(s.indexOf("AB")!=-1 || s.indexOf("CD")!=-1){
+            if(s.indexOf("AB")!=-1){
+                abocc=s.indexOf("AB");
+               s=s.substring(0,abocc)+s.substring(abocc+2,s.length());
+            }
+
+             if(s.indexOf("CD")!=-1){
+                cdocc=s.indexOf("CD");
+                s=s.substring(0,cdocc)+s.substring(cdocc+2,s.length());
+            }
+            
+        }
+        return s.length();
+    }
+}
