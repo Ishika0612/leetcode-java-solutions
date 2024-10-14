@@ -1,0 +1,15 @@
+class Solution {
+    public long pickGifts(int[] gifts, int k) {
+        int i=0;
+     while(i!=k)  {
+        Arrays.sort(gifts);
+        gifts[gifts.length-1]=(int)Math.sqrt(gifts[gifts.length-1]);
+        i++;
+     }
+     long remgifts=0;
+     for(int j=0;j<gifts.length;j++)
+     remgifts+=gifts[j];
+
+     return remgifts;
+    }
+}
