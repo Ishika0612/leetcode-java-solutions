@@ -1,0 +1,23 @@
+class Solution {
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+         int nSquared = grid.length* grid.length;
+       int[] count = new int[nSquared + 1];
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid[i].length;j++){
+              count[grid[i][j]]+=1;
+            }
+        }
+
+          int repeated = -1;
+    int missing = -1;
+
+    for (int i = 1; i <= nSquared; ++i) {
+      if (count[i] == 2)
+        repeated = i;
+      if (count[i] == 0)
+        missing = i;
+    }
+
+        return new int[] {repeated,missing};
+    }
+}
