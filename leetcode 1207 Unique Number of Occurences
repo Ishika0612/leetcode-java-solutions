@@ -1,0 +1,27 @@
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+     HashMap<Integer,Integer>hm=new HashMap<>();
+
+        for(int i=0;i<arr.length;i++){
+            if(hm.containsKey(arr[i])==false)
+            hm.put(arr[i],1);
+            else
+            hm.put(arr[i],hm.get(arr[i])+1);
+        }
+
+        HashSet<Integer>elemset=new HashSet<>();
+        HashSet<Integer>freqset=new HashSet<>();
+        for(int i=0;i<arr.length;i++){
+            if(elemset.contains(arr[i]))
+             continue;
+            else if(freqset.contains(hm.get(arr[i])))
+            return false;
+            else{
+                elemset.add(arr[i]);
+                freqset.add(hm.get(arr[i]));
+            }
+        }
+        return true;
+    
+    }
+}
