@@ -1,0 +1,15 @@
+class Solution {
+    public int minimumChairs(String s) {
+       int minChairs=0;
+       int chairs=0;
+       for(int i=0;i<s.length();i++) {
+        if(s.charAt(i)=='E')
+        chairs++;
+        else
+        chairs--;
+        minChairs=Math.max(minChairs,chairs);
+       }
+
+       return minChairs;
+    }
+}
