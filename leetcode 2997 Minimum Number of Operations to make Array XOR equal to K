@@ -1,0 +1,16 @@
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        int xor=0;
+        for(int i=0;i<nums.length;i++){
+            xor^=nums[i];
+        }
+        int flip=0;
+        while(xor>0 || k>0){
+         if((xor&1)!=(k&1))
+         flip++;
+         xor=xor>>1;
+         k=k>>1;
+        }
+        return flip;
+    }
+}
