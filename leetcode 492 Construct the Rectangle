@@ -1,0 +1,21 @@
+class Solution {
+    public int[] constructRectangle(int area) {
+        int ans=Integer.MAX_VALUE;
+        int[] arr = new int[2];
+      for(int i=1;i*i<=area;i++)  {
+          int width=i;
+         int length =area/width;
+         if((length*width) == area) {
+            if(ans>(length-width)){
+                arr[0]=length;
+                arr[1]=width;
+            }
+         }
+           
+         else
+         continue;
+      }
+
+      return arr;
+    }
+}
