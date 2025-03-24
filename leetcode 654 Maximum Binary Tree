@@ -1,0 +1,29 @@
+class Solution {
+    public int[] findMax(int[] arr,int i,int j){
+        int ans[] = {Integer.MIN_VALUE,-1};
+        for(int x=i;x<j;x++){
+           if(ans[0]<arr[x]){
+            ans[0]=arr[x];
+            ans[1]=x;
+           }
+
+        }
+        return ans;
+    }
+
+    public TreeNode construct(int[] nums , int i,int j){
+        int find[] = findMax(nums,i,j);
+        TreeNode node = new TreeNode(find[0]);
+        if(find[1]>i){
+            node.left=construct(nums,i,find[1]);
+        }
+        if(find[1]<j-1){
+            node.right=construct(nums,find[1]+1,j);
+        }
+        return node;
+    }
+
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+       return construct(nums,0,nums.length);
+    }
+}
