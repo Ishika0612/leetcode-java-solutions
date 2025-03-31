@@ -1,0 +1,22 @@
+class Solution {
+    public int gcd(int x,int y){
+        if(y==0)
+        return x;
+        else
+        return gcd(y,x%y);
+    }
+    public ListNode insertGreatestCommonDivisors(ListNode head) {
+        if(head.next==null)
+        return head;
+      ListNode temp = head;
+      while(temp.next!=null){
+       ListNode gcdNode =new ListNode(gcd(temp.val,temp.next.val));
+        ListNode link = temp.next;
+         temp.next=gcdNode;
+         temp=temp.next;
+         temp.next=link;
+         temp=temp.next;
+      }
+      return head;
+    }
+}
