@@ -1,0 +1,24 @@
+class Solution {
+    public int[][] swap(int[][] score,int k, int start,int end){
+         if((start-end)==0)
+        return score;
+        int maxRow=-1;
+        int max=Integer.MIN_VALUE;
+        for(int i=start;i<=end;i++){
+            if(score[i][k]>max){
+                max=score[i][k];
+                maxRow=i;
+            }
+        }
+        for(int i=0;i<score[maxRow].length;i++){
+            int temp=score[start][i];
+            score[start][i]=score[maxRow][i];
+            score[maxRow][i]=temp;
+        }
+       return swap(score,k,start+1,end);
+    }
+
+    public int[][] sortTheStudents(int[][] score, int k) {
+      return swap(score,k,0,score.length-1);
+    }
+}
