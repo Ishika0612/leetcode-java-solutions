@@ -1,0 +1,38 @@
+class Solution {
+    public ListNode[] findMid (ListNode head){
+        if(head==null || head.next==null)
+        return new ListNode[]{head,null};
+        ListNode slow=head;
+         ListNode fast=head;
+          ListNode prev=null;
+
+      while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        // Disconnect the left half from the mid
+        if (prev != null) {
+            prev.next = null;
+        }
+        
+        return new ListNode[]{slow, head};
+    }
+    public TreeNode BST(ListNode head){
+        if(head==null)
+        return null;
+        if(head.next==null)
+        return new TreeNode(head.val);
+        ListNode[] arr = findMid(head);
+        TreeNode root=new TreeNode(arr[0].val);
+        if(arr[0]!=arr[1])
+        root.left=BST(arr[1]);
+
+        root.right=BST(arr[0].next);
+        return root;
+    }
+    public TreeNode sortedListToBST(ListNode head) {
+        return BST(head);
+    }
+}
