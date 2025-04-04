@@ -1,0 +1,31 @@
+class Solution {
+      public void listarr(ArrayList<Integer> arr,TreeNode root){
+        if(root==null)
+        return;
+        listarr(arr,root.left);
+        arr.add(root.val);
+        listarr(arr,root.right);
+      }
+    public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
+        ArrayList<Integer> arr1 = new ArrayList<>();
+         ArrayList<Integer> arr2 = new ArrayList<>();
+        listarr(arr1,root1);
+        listarr(arr2,root2);
+        ArrayList<Integer> ans = new ArrayList<>();
+        int i=0;
+        int j=0;
+        while(i<arr1.size() && j<arr2.size()){
+            if(arr1.get(i)<arr2.get(j))
+            ans.add(arr1.get(i++));
+            else
+            ans.add(arr2.get(j++));
+        }
+        while(i<arr1.size()){
+             ans.add(arr1.get(i++));
+        }
+         while(j<arr2.size()){
+             ans.add(arr2.get(j++));
+        }
+        return ans;
+    }
+}
