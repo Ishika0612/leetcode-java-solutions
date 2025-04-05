@@ -1,0 +1,30 @@
+class Solution {
+    public TreeNode add(TreeNode root,int val,int depth,int i){
+       if(root==null)
+       return root;
+       if(depth==1){
+         TreeNode newroot = new TreeNode(val);
+         newroot.left=root;
+         root=newroot;
+         return root;
+       }
+        if(i==depth-1){
+        TreeNode newleft = new TreeNode(val);
+        TreeNode newright= new TreeNode(val);
+        newleft.left=root.left;
+        newright.right=root.right;
+        root.left=newleft;
+        root.right=newright;
+        return root;
+        }
+        i++;
+        if(root.left!=null)
+        add(root.left,val,depth,i);
+        if(root.right!=null)
+        add(root.right,val,depth,i);
+        return root;
+    }
+    public TreeNode addOneRow(TreeNode root, int val, int depth) {
+        return add(root,val,depth,1);
+    }
+}
