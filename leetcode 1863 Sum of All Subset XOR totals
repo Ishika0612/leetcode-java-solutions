@@ -1,0 +1,12 @@
+class Solution {
+    public int xor(int[] nums,int i,int currxor){
+        if(i==nums.length)
+        return currxor;
+        int with = xor(nums,i+1,currxor^nums[i]);
+        int without = xor(nums,i+1,currxor);
+        return with + without;
+    }
+    public int subsetXORSum(int[] nums) {
+        return xor(nums,0,0);
+    }
+}
