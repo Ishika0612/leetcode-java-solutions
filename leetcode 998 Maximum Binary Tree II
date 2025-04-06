@@ -1,0 +1,16 @@
+class Solution {
+    public TreeNode insertIntoMaxTree(TreeNode root, int val) {
+        if(root==null){
+             TreeNode newroot = new TreeNode(val);
+             return newroot;
+        }
+        if(root.val<val){
+            TreeNode newroot = new TreeNode(val);
+            newroot.left=root;
+            root=newroot;
+            return root;
+        }
+        root.right = insertIntoMaxTree( root.right,  val) ;
+        return root;
+    }
+}
