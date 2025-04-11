@@ -1,0 +1,20 @@
+class Solution {
+    public int countSymmetricIntegers(int low, int high) {
+        int count=0;
+        for(int i=low;i<=high;i++){
+            int firstHalf=0;
+            int lastHalf=0;
+           char[] digits = String.valueOf(i).toCharArray(); 
+           int n= digits.length;
+           if(n%2==0){
+            for(int j=0;j<n/2;j++){
+              firstHalf+=Integer.valueOf(digits[j]);
+            lastHalf+=Integer.valueOf(digits[n-1-j]);
+            }
+            if(firstHalf==lastHalf)
+            count++;
+           }
+        }
+        return count;
+    }
+}
