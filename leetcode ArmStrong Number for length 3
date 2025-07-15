@@ -1,0 +1,12 @@
+class Solution {
+    static boolean armstrongNumber(int n) {
+        // code here
+        int num=n;
+        int obtainNum=0;
+        while(n>0){
+            obtainNum+=(int)Math.pow(n%10,3);
+            n/=10;
+        }
+        return num==obtainNum;
+    }
+}
