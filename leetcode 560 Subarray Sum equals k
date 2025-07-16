@@ -1,0 +1,24 @@
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int[] pref = new int[nums.length];
+        pref[0]=nums[0];
+        for(int i=1;i<nums.length;i++){
+            pref[i]=nums[i]+pref[i-1];
+        }
+        int subarray=0;
+        for(int i=0;i<pref.length;i++){
+            int sum=-1;
+            for(int j=i;j<pref.length;j++){
+                if(i==j){
+                 sum=pref[i];
+                }
+                else{
+                    sum=pref[j]-pref[i];
+                }
+                if(sum==k)
+                subarray++;
+            }
+        }
+        return subarray;
+    }
+}
