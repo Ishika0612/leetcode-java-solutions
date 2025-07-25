@@ -1,0 +1,27 @@
+class Solution {
+    public int maxSum(int[] nums) {
+        //when length is 1 and only -ve number is there
+        if(nums.length==1)
+        return nums[0];
+
+        //when we have some +ve values
+       int[] arr = new int[101];
+        int sum=0;
+        for(int i =0;i<nums.length;i++){
+            if(nums[i]>0 && arr[nums[i]]==0){
+                arr[nums[i]]++;
+                sum+=nums[i];
+            }
+        }
+
+        //when length is greater than 1 but the array only contains -ve value or 0
+        int max=Integer.MIN_VALUE;
+        if(sum==0){
+              for(int i =0;i<nums.length;i++){
+                max=Math.max(nums[i],max);
+              }
+              sum=max;
+        }
+        return sum;
+    }
+}
