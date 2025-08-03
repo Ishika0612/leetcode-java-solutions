@@ -1,0 +1,26 @@
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        ArrayList<int[]> arr = new ArrayList<>();
+
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[i].length;j++){
+                if(matrix[i][j]==0){
+                 arr.add(new int[]{i,j});
+                }
+            }
+        }
+
+        for(int[] el:arr){
+            int newi = el[0];
+            int newj=el[1];
+                //set row to zero
+                    for(int k=0;k<matrix[newi].length;k++){
+                        matrix[newi][k]=0;
+                    }
+                    //set col to zero
+                    for(int k=0;k<matrix.length;k++){
+                        matrix[k][newj]=0;
+                    }
+        }
+    }
+}
