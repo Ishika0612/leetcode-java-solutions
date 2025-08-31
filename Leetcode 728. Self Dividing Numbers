@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isSelfDivide(int num){
+        int number = num;
+         while(num>0){
+             int div=num%10;
+             if(div==0 || number%div!=0){
+                return false;
+                 }
+             num/=10;
+            }
+        return true;
+    }
+
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer>arr = new ArrayList<>();
+
+        for(int i=left;i<=right;i++){
+          if(isSelfDivide(i))
+          arr.add(i);
+        }
+
+        return arr;
+    }
+}
