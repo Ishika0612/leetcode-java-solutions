@@ -1,0 +1,27 @@
+class Solution {
+    public int[] findThePrefixCommonArray(int[] A, int[] B) {
+        boolean[] arr = new boolean[A.length+1];
+        int[] ans = new int[A.length];
+        int count=0;
+
+        for(int i=0;i<A.length;i++){
+           if(arr[A[i]]==true){
+            count++;
+           }
+           else{
+            arr[A[i]]=true;
+           }
+
+           if(arr[B[i]]==true){
+            count++;
+           }
+           else{
+            arr[B[i]]=true;
+           }
+
+           ans[i]=count;
+        }
+
+        return ans;
+    }
+}
