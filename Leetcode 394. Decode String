@@ -1,0 +1,36 @@
+class Solution {
+    public String decodeString(String s) {
+        Stack<Character>stack = new Stack<>();
+        
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)==']'){
+               StringBuilder str = new StringBuilder();
+               while(stack.peek()!='['){
+                str.append(stack.pop());
+               }
+               stack.pop();
+               StringBuilder digits = new StringBuilder();
+               while(!stack.isEmpty() && Character.isDigit(stack.peek())){
+                digits.append(stack.pop());
+               }
+
+               int digit = digits.length()>0 ? Integer.parseInt(digits.reverse().toString()) : 1;
+               String words = str.reverse().toString();
+               words= words.repeat(digit);
+
+                for(int j=0;j<words.length();j++){
+                    stack.push(words.charAt(j));
+                }
+               
+            }
+            else{
+                stack.push(s.charAt(i));
+            }
+        }
+        StringBuilder ans = new StringBuilder();
+        while(!stack.isEmpty()){
+            ans.append(stack.pop());
+        }
+        return ans.reverse().toString();
+    }
+}
