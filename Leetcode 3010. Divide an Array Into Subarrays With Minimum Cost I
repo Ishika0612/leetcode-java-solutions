@@ -1,0 +1,8 @@
+class Solution {
+    public int minimumCost(int[] nums) {
+// we are not going to sort 0th index bcoz we always have to count the 0th index as first subarray
+         Arrays.sort(nums, 1, nums.length);
+
+         return nums[0]+nums[1]+nums[2];
+    }
+}
